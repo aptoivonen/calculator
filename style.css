@@ -36,7 +36,7 @@ html {
     "seven eight nine multiply"
     "four five six minus"
     "one two three add"
-    "zero zero decimal equal";
+    "zero zero decimal equals";
   margin: 0 auto;
   padding: 20px;
 }
@@ -138,6 +138,6 @@ html {
 .decimal {
   grid-area: decimal;
 }
-.equal {
-  grid-area: equal;
+.equals {
+  grid-area: equals;
 }
