@@ -156,11 +156,9 @@ const handleClick = ({ target: { id } }) => {
     plusMinus();
   }
   updateScreen();
-  console.log(input);
 };
 
 const handleKey = ({ key }) => {
-  console.log(key);
   const keyBindings = {
     "+": inputOperator.bind(null, "add"),
     "-": inputOperator.bind(null, "subtract"),
@@ -176,19 +174,20 @@ const handleKey = ({ key }) => {
     7: inputNumber.bind(null, "7"),
     8: inputNumber.bind(null, "8"),
     9: inputNumber.bind(null, "9"),
+    Escape: clear,
     Enter: equals,
     ",": addDecimal,
     ".": addDecimal,
+    "!": plusMinus,
   };
   if (keyBindings[key]) keyBindings[key]();
   updateScreen();
-  console.log(input);
 };
 
 const initialize = () => {
   calculator = $("#calculator");
   calculator.addEventListener("click", handleClick);
-  window.addEventListener("keypress", handleKey);
+  window.addEventListener("keydown", handleKey);
   screen = $("#screen");
   input = { operator: "", operand1: "", operand2: "", result: "", error: "" };
   updateScreen();
