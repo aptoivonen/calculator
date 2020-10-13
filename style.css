@@ -34,7 +34,7 @@ html {
     "screen screen screen screen"
     "clear clear plus-minus divide"
     "seven eight nine multiply"
-    "four five six minus"
+    "four five six subtract"
     "one two three add"
     "zero zero decimal equals";
   margin: 0 auto;
@@ -98,6 +98,10 @@ html {
 
 .divide {
   grid-area: divide;
+}
+
+.subtract {
+  grid-area: subtract;
 }
 
 .seven {
