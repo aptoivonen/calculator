@@ -19,7 +19,11 @@ const filterResult = (numberString) => {
     return "";
   }
   if (numberString.includes(".") && numberString.length > 9) {
-    return numberString.substring(0, 9);
+    numberString = numberString.substring(0, 9);
+  }
+  if (numberString.includes(".")) {
+    while (numberString[numberString.length - 1] === "0")
+      numberString = numberString.substring(0, numberString.length - 1);
   }
   return numberString;
 };
