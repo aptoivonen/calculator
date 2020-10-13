@@ -69,12 +69,13 @@ const addDecimal = () => {
   const updateOperand = (index) => {
     const operand = "operand" + index;
     if (input[operand].length >= NUMBER_MAX_LENGTH) return;
-    if (input[operand].endsWith(".")) return;
-    input[operand] += ".";
+    if (input[operand].includes(".")) return;
+    if (!input[operand]) input[operand] = "0.";
+    else input[operand] += ".";
   };
   if (input.error || input.result) {
     clear();
-    input.operand1 = ".";
+    input.operand1 = "0.";
   } else if (!input.operator) {
     updateOperand("1");
   } else {
@@ -93,6 +94,10 @@ const equals = () => {
   }
   clear();
   input.result = filterResult(String(operate(operator, x, y)));
+};
+
+const plusMinus = () => {
+  if (!input.operand1) return;
 };
 
 const handleClick = ({ target: { id } }) => {
@@ -122,6 +127,8 @@ const handleClick = ({ target: { id } }) => {
     equals();
   } else if (id === "decimal") {
     addDecimal();
+  } else if (id === "plus-minus") {
+    plusMinus();
   }
   updateScreen();
   console.log(input);
