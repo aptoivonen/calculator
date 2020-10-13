@@ -1,15 +1,4 @@
-import { add, subtract, multiply, divide } from "./maths.js";
-
-const operate = (operator, x, y) => {
-  const operatorLookup = {
-    add: add,
-    subtract: subtract,
-    multiply: multiply,
-    divide: divide,
-  };
-
-  if (operatorLookup[operator]) return operatorLookup[operator](x, y);
-};
+import { operate } from "./maths.js";
 
 const $ = (query) => document.querySelector(query);
 
@@ -107,15 +96,15 @@ const equals = () => {
 };
 
 const handleClick = ({ target: { id } }) => {
-  if (id === "clear") {
-    clear();
-  } else if (
+  if (
     id === "add" ||
     id === "subtract" ||
     id === "multiply" ||
     id === "divide"
   ) {
     inputOperator(id);
+  } else if (id === "clear") {
+    clear();
   } else if (id === "equals") {
     equals();
   } else if (id === "decimal") {
