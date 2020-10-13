@@ -22,7 +22,7 @@ html {
 
 .calculator {
   background: rgb(55, 59, 68)
-    linear-gradient(to bottom, rgb(55, 59, 68), rgb(66, 134, 244));
+    linear-gradient(to top, rgb(55, 59, 68), rgb(66, 134, 244));
   border-radius: 10px;
   width: 100%;
   height: 500px;
