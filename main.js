@@ -14,12 +14,12 @@ const updateScreen = () => {
 };
 
 const filterResult = (numberString) => {
-  if (!numberString.includes(".") && numberString.length > 9) {
-    makeError();
+  if (!numberString.includes(".") && numberString.length > NUMBER_MAX_LENGTH) {
+    makeOverflow();
     return "";
   }
-  if (numberString.includes(".") && numberString.length > 9) {
-    numberString = numberString.substring(0, 9);
+  if (numberString.includes(".") && numberString.length > NUMBER_MAX_LENGTH) {
+    numberString = numberString.substring(0, NUMBER_MAX_LENGTH);
   }
   if (numberString.includes(".")) {
     while (numberString[numberString.length - 1] === "0")
@@ -30,6 +30,10 @@ const filterResult = (numberString) => {
 
 const makeError = () => {
   input.error = "Error";
+};
+
+const makeOverflow = () => {
+  input.error = "Overflow";
 };
 
 const clear = () => {
@@ -158,7 +162,7 @@ const initialize = () => {
   updateScreen();
 };
 
-const NUMBER_MAX_LENGTH = 9;
+const NUMBER_MAX_LENGTH = 8;
 let calculator;
 let screen;
 let input;
