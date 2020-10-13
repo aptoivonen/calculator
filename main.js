@@ -103,32 +103,25 @@ const handleClick = ({ target: { id } }) => {
     id === "divide"
   ) {
     inputOperator(id);
+  } else if (
+    id === "0" ||
+    id === "1" ||
+    id === "2" ||
+    id === "3" ||
+    id === "4" ||
+    id === "5" ||
+    id === "6" ||
+    id === "7" ||
+    id === "8" ||
+    id === "9"
+  ) {
+    inputNumber(id);
   } else if (id === "clear") {
     clear();
   } else if (id === "equals") {
     equals();
   } else if (id === "decimal") {
     addDecimal();
-  } else if (id === "zero") {
-    inputNumber("0");
-  } else if (id === "one") {
-    inputNumber("1");
-  } else if (id === "two") {
-    inputNumber("2");
-  } else if (id === "three") {
-    inputNumber("3");
-  } else if (id === "four") {
-    inputNumber("4");
-  } else if (id === "five") {
-    inputNumber("5");
-  } else if (id === "six") {
-    inputNumber("6");
-  } else if (id === "seven") {
-    inputNumber("7");
-  } else if (id === "eight") {
-    inputNumber("8");
-  } else if (id === "nine") {
-    inputNumber("9");
   }
   updateScreen();
   console.log(input);
