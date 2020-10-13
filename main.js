@@ -14,6 +14,9 @@ const updateScreen = () => {
 };
 
 const filterResult = (numberString) => {
+  const removeLast = (numberString) => {
+    return numberString.substring(0, numberString.length - 1);
+  };
   if (!numberString.includes(".") && numberString.length > NUMBER_MAX_LENGTH) {
     makeOverflow();
     return "";
@@ -23,7 +26,9 @@ const filterResult = (numberString) => {
   }
   if (numberString.includes(".")) {
     while (numberString[numberString.length - 1] === "0")
-      numberString = numberString.substring(0, numberString.length - 1);
+      numberString = removeLast(numberString);
+    if (numberString.endsWith(".")) numberString = removeLast(numberString);
+    if (Number(numberString) === 0) numberString = "0";
   }
   return numberString;
 };
