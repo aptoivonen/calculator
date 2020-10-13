@@ -97,7 +97,19 @@ const equals = () => {
 };
 
 const plusMinus = () => {
-  if (!input.operand1) return;
+  const updateOperand = (index) => {
+    const operand = "operand" + index;
+    if (!input[operand] || input[operand] === "0") return;
+    if (input[operand].startsWith("-"))
+      input[operand] = input[operand].substring(1);
+    else input[operand] = "-" + input[operand];
+  };
+  if (input.result || input.error) return;
+  if (!input.operator) {
+    updateOperand("1");
+  } else {
+    updateOperand("2");
+  }
 };
 
 const handleClick = ({ target: { id } }) => {
